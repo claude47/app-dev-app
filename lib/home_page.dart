@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'model.dart';
 import 'database_helper.dart';
+import 'profile_page.dart';
 import 'widget.dart';
 import 'form_page.dart';
 
@@ -15,10 +16,36 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.grey[200],
+        backgroundColor: Colors.lightBlueAccent,
         appBar: AppBar(
-          title: const Text('Daruca Assignment'),
+          title: Text(
+            'Notes are also a way to capture!',
+            style: TextStyle(
+              fontSize: 18,
+              letterSpacing: 1.0,
+              fontStyle: FontStyle.italic,
+              shadows: [
+                Shadow(
+                  blurRadius: 4,
+                  color: Colors.black.withOpacity(0.25),
+                  offset: const Offset(2, 2),
+                )
+              ],
+            ),
+          ),
           centerTitle: true,
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.person),
+              onPressed: () {
+                // Add your action here
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const EditProfile()),
+                );
+              },
+            ),
+          ],
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () async {
@@ -41,8 +68,7 @@ class _HomePageState extends State<HomePage> {
                   itemBuilder: (context, index) => NoteWidget(
                     note: snapshot.data![index],
                     onTap: () async {
-                      await Navigator.push(
-                          context,
+                      await Navigator.push(context,
                           MaterialPageRoute(
                               builder: (context) => FormPage(
                                 note: snapshot.data![index],
