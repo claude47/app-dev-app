@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.lightBlueAccent,
         appBar: AppBar(
           title: Text(
-            'Notes are also a way to capture!',
+            'HELLO, USER!',
             style: TextStyle(
               fontSize: 18,
               letterSpacing: 1.0,

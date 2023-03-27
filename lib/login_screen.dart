@@ -1,5 +1,8 @@
 import 'package:db_assignment_daruca/home_page.dart';
+import 'package:db_assignment_daruca/homepage_two.dart';
 import 'package:flutter/material.dart';
+
+import 'final_page.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -142,9 +145,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
 
                     if (email == "daruca@gmail.com" && password == "daruca12") {
-
-
                       Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage()));
+                    } else if (email == "claude12@gmail.com" && password == "claude12") {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const HomehomePage()));
                     } else {
 
                       showDialog(
